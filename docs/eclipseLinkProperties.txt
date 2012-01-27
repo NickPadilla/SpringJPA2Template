@@ -1,0 +1,16 @@
+<entry key="eclipselink.weaving" value="true"/>
+<entry key="eclipselink.ddl-generation" value="create-tables" />
+<entry key="eclipselink.ddl-generation" value="drop-and-create-tables" />  
+<entry key="eclipselink.ddl-generation.output-mode" value="both" />
+<entry key="eclipselink.logging.timestamp" value="false" />
+<entry key="eclipselink.logging.session" value="false" />
+<entry key="eclipselink.logging.thread" value="false" />
+<entry key="eclipselink.logging.exceptions" value="true" />
+<entry key="eclipselink.weaving.lazy" value="true"/>
+<entry key="eclipselink.weaving.fetchgroups" value="true"/>
+<entry key="eclipselink.weaving.internal" value="true"/>
+<entry key="eclipselink.weaving.eager" value="true"/>
+<entry key="eclipselink.weaving.changetracking" value="true"/>
+
+
+There are more here : http://wiki.eclipse.org/Using_EclipseLink_JPA_Extensions_(ELUG)

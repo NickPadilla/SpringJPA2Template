@@ -1,0 +1,36 @@
+First of all you will need these maven dependencies:
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument-tomcat</artifactId>
+			<version>${org.springframework-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>		
+				
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+		
+If using tomcat, you need to tell it to use a custom class loader - different impls per app server - add this to your context.xml:
+
+<!-- spring load time weaving  -->
+<Loader loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader"/>
+
+And have this in your spring config :
+
+
+	<context:load-time-weaver />
+	
+	
+And finally you need to make sure you add this jar to tomcat's lib directory for your instance: 
+
+org.springframework.instrument.tomcat

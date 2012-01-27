@@ -1,0 +1,10 @@
+Use this as it works like a charm: 
+http://www.eclipse.org/webtools/releases/3.2.0/NewAndNoteworthy/jpa.php
+
+Currently, with spring 3.1, you don't need to specify your entities in a persistence.xml file.  You can just use annotation scanning
+which is enabled when setting up the entity manager factory in the spring config.  However, metamodel generation requires a persistence.xml
+to be present in the project, if using the above tool it will create one for you if none is present - You don't every have to touch this file
+or even have to worry about it.  Just an FYI..
+
+To use the metamodel without getting a NPE the first time out use this eclipselink setting:
+<entry key="eclipselink.deploy-on-startup" value="true" />

@@ -1,0 +1,10 @@
+When deploying to tomcat you need to ensure you add these jars to the lib dir for the instance you deploy to:
+
+javax.servlet-api.3.0.1
+org.springframework.instrument.tomcat
+
+Only worry about these if you are going to use these for db connections - 
+if so add them to the pom.xml as well to be safe. If you don't need these don't worry about it.
+
+jtds-1.2.4
+mysql-connector-java-5.1.18

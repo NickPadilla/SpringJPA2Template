@@ -1,0 +1,15 @@
+LazyLoading does't work on OneToOne and OneToMany mappings, this is because of a problem in how weaving 
+happens with Tomcat.  I have opened a thread here : 
+http://forum.springsource.org/showthread.php?121502-Spring-3-1-EclipseLink-2-3-2-Tomcat-7-Load-Time-Weaving
+
+Created this Spring Bug for the LAZY loading issue:
+https://jira.springsource.org/browse/DATAJPA-157
+
+need to expand on the type safe queries, nothing really built for it - just a test impl. Here is some really
+good information on how to use the Typesafe queries in detail: 
+http://www.ibm.com/developerworks/java/library/j-typesafejpa/
+
+Follow this Hibernate-Validator issue and upgrade once 4.3 is released, it will have the class level validation 
+annotation bug fixed:  https://hibernate.onjira.com/browse/HV-524 
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- spring load time weaving  -->
+    <Loader loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader"/>
+        
+    <!-- MSSQL setup using JTDS -->
+    <Resource name="jdbc/springjpatemplate" auth="Container" type="javax.sql.DataSource" 
+    		  username="sa" password="H0m3Fr3E!" driverClassName="net.sourceforge.jtds.jdbc.Driver" 
+    		  url="jdbc:jtds:sqlserver://10.20.148.158:1433/springjpatemplate" validationQuery="Select 1" /> 
+    		  
+    <!-- MySQL setup using mysql connector -->
+	<!--<Resource name="jdbc/springjpatemplate" auth="Container" type="javax.sql.DataSource" 
+    		  username="user" password="pass" driverClassName="com.mysql.jdbc.Driver" 
+    		  url="jdbc:mysql://localhost:3306/springjpatemplate" validationQuery="Select 1" /> -->
+</Context>

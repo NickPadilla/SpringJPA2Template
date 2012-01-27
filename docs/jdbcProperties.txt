@@ -1,0 +1,22 @@
+This application is configured with JNDI and setup for tomcat with the context.xml in the webapp/WEB-INF/ directory.
+Also need to have this in your web.xml
+
+	<resource-ref>
+		<description>datasource</description>
+		<res-ref-name>jdbc/springjpatemplate</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	
+	
+Also using spring connection pool, which should be good enough for now.  To use another impl, just add it to the project,
+for example - just add this to the pom.xml for apache-dbcp connection pooling : 
+
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp-version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+		</dependency>
