@@ -29,10 +29,10 @@ public class AccountLogin  {
 	@NotBlank(message="{NotEmpty.account.username}")
 	private String username;
 	@NotBlank(message="{NotEmpty.account.password}")
-    @Size(min=8, max=25, message="{Size.account.password}")
+    @Size(min=7, message="{Size.account.password}")
 	private String password;
 	@NotBlank(message="{NotEmpty.account.password}")
-    @Size(min=8, max=25, message="{Size.account.password}")
+    @Size(min=7, message="{Size.account.password}")
 	private String passwordVerify;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastLoggedIn;

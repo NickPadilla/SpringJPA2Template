@@ -26,10 +26,10 @@ public class Account  {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	@OneToOne(fetch=FetchType.LAZY,cascade={CascadeType.PERSIST})
+	@OneToOne(fetch=FetchType.LAZY,cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@Valid
 	private Person person = new Person();
-	@OneToOne(fetch=FetchType.LAZY,cascade={CascadeType.PERSIST})
+	@OneToOne(fetch=FetchType.LAZY,cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@FieldMatch(fieldToMatchOn="passwordVerify", fieldsToMatch="password", message = "{FieldMatch.account.password}")
 	@Valid
 	private AccountLogin login = new AccountLogin();

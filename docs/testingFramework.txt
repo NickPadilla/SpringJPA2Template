@@ -1,0 +1,10 @@
+Everything is setup to use an in memory database for testing.  All is well when run using maven, but for junit to run with no problems
+we need to add the -javaagent: switch to the environment variables. You can use these steps to get this to work:
+
+1. Open Window -> Preferences -> Java -> Installed JREs
+2. Select the JRE in use by the project. Click Edit.
+3. Add to the 'Default VM Arguments' field this:
+
+-javaagent:"${project_loc}/src/test/resources/spring-instrument-3.1.1.RELEASE.jar"
+
+Should be good to go running your unit/integration tests using just JUnit.

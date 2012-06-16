@@ -1,4 +1,4 @@
-package com.monstersoftwarellc.springjpatemplate;
+package com.monstersoftwarellc.springjpatemplate.controller;
 
 import javax.validation.Valid;
 

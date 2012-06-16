@@ -1,1 +1,0 @@
-This is needed to commit an empty dir using git.

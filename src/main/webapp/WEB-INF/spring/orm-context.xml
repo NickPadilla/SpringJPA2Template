@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+				http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context-3.1.xsd
+				http://www.springframework.org/schema/jee
+				http://www.springframework.org/schema/jee/spring-jee-3.1.xsd">
+
+	
+	<!-- use JNDI for data source configuration -->
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/springjpatemplate" />	
+	
+	<!-- EclipseLink vendor specific configurations 
+	<bean id="eclipseLinkVendor" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter"
+			p:showSql="true" 
+			p:generateDdl="false"
+			p:databasePlatform="org.eclipse.persistence.platform.database.SQLServerPlatform"
+			p:database="SQL_SERVER" />-->
+				
+	<bean id="eclipseLinkVendor" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter"
+				p:showSql="true" 
+				p:generateDdl="false"
+				p:databasePlatform="org.eclipse.persistence.platform.database.MySQLPlatform"
+				p:database="MYSQL" />		
+	
+</beans>

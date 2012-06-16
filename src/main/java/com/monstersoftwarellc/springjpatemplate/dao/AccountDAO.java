@@ -5,7 +5,6 @@ package com.monstersoftwarellc.springjpatemplate.dao;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.monstersoftwarellc.springjpatemplate.model.Account;
 
@@ -14,7 +13,6 @@ import com.monstersoftwarellc.springjpatemplate.model.Account;
  *
  */
 @Repository
-@Transactional
 public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
 
 	private static Logger LOG = Logger.getLogger(AccountDAO.class);

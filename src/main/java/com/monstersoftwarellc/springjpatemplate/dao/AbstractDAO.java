@@ -24,7 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
  *
  */
 @Repository
-@Transactional
 public abstract class AbstractDAO<T> implements IDAO<T> {
 
 	@PersistenceContext
@@ -65,6 +64,7 @@ public abstract class AbstractDAO<T> implements IDAO<T> {
 	 * @see com.monstersoftwarellc.goldrush.dao.IDAO#persist(java.lang.Object)
 	 */
 	@Override
+	@Transactional
 	public void persist(T instance) {
 		if(getLog().isDebugEnabled()){
 			getLog().debug("persisting "+daoImplClass.getName()+"'s");
@@ -83,6 +83,7 @@ public abstract class AbstractDAO<T> implements IDAO<T> {
 	 * @see com.monstersoftwarellc.goldrush.dao.IDAO#persistAll(java.util.Collection)
 	 */
 	@Override
+	@Transactional
 	public void persistAll(Collection<T> instances) {
 		if(getLog().isDebugEnabled()){
 			getLog().debug("persisting "+daoImplClass.getName()+"'s");
@@ -103,6 +104,7 @@ public abstract class AbstractDAO<T> implements IDAO<T> {
 	 * @see com.monstersoftwarellc.goldrush.dao.IDAO#delete(java.lang.Object)
 	 */
 	@Override
+	@Transactional
 	public void delete(T instance) {
 		if(getLog().isDebugEnabled()){
 			getLog().debug("deleting "+daoImplClass.getName()+"'s");
@@ -121,6 +123,7 @@ public abstract class AbstractDAO<T> implements IDAO<T> {
 	 * @see com.monstersoftwarellc.goldrush.dao.IDAO#merge(java.lang.Object)
 	 */
 	@Override
+	@Transactional
 	public T merge(T instance) {
 		if(getLog().isDebugEnabled()){
 			getLog().debug("merging "+daoImplClass.getName()+"'s");
@@ -140,6 +143,7 @@ public abstract class AbstractDAO<T> implements IDAO<T> {
 	 * @see com.monstersoftwarellc.goldrush.dao.IDAO#mergeAll(java.util.Collection)
 	 */
 	@Override
+	@Transactional
 	public Collection<T> mergeAll(Collection<T> instances) {
 		if(getLog().isDebugEnabled()){
 			getLog().debug("merging "+daoImplClass.getName()+"'s");

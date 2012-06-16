@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+				http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context-3.1.xsd
+				http://www.springframework.org/schema/task
+				http://www.springframework.org/schema/task/spring-task-3.1.xsd
+				http://www.springframework.org/schema/util
+				http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+    <!-- Indexing Tasks -->
+	<task:annotation-driven />	
+
+	<!-- enable annotation driven config -->
+	<context:annotation-config />
+	
+	<!-- jpa properties -->
+	<util:map id="jpaMap">
+		<!-- need the deploy-on-startup so that the metamodel gets created before first use -->
+	    <entry key="eclipselink.deploy-on-startup" value="true" />
+		<entry key="eclipselink.ddl-generation" value="create-tables" />
+		<entry key="eclipselink.weaving" value="true"/>
+		<!-- <entry key="eclipselink.weaving.output.path" value="C:\\weavedClasses"/>
+	    <entry key="eclipselink.weaving.overwrite.existing" value="true" /> -->
+	    <entry key="eclipselink.logging.level" value="FINEST" />
+	    <entry key="show-sql" value="true" />
+	</util:map>	
+			
+	<bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect" />   
+	 
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"		
+			p:dataSource-ref="dataSource"
+			p:jpaVendorAdapter-ref="eclipseLinkVendor"
+			p:jpaPropertyMap-ref="jpaMap"
+			p:jpaDialect-ref="jpaDialect"
+			p:packagesToScan="com.monstersoftwarellc.springjpatemplate.model" />			
+	
+	<!-- transaction management -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+			p:entityManagerFactory-ref="entityManagerFactory" />
+	
+	<!-- enable LTW -->
+	<context:load-time-weaver />
+	
 </beans>

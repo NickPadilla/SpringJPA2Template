@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+				http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/jdbc 
+				http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd">
+	
+	<jdbc:embedded-database id="dataSource" type="DERBY" />
+	
+	<bean id="eclipseLinkVendor" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter"
+			p:showSql="true" 
+			p:generateDdl="false"
+			p:databasePlatform="org.eclipse.persistence.platform.database.DerbyPlatform"
+			p:database="DERBY" />		
+			
+	<import resource="root-context.xml" /> 
+	<import resource="servlet-context.xml" /> 
+    		
+</beans>
